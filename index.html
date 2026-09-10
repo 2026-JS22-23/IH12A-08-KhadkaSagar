@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google API</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- jQuery UI theme (style.css) -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">KYOTO TRAVEL GUIDE</p>
+    <h1>京都 観光名所めぐり</h1>
+    <p class="subtitle">地図をクリックして、京都の名所をひとつずつ「参拝」しよう</p>
+  </div>
+  <div class="header-stamp" aria-hidden="true">京</div>
+</header>
+
+<main class="layout">
+
+  <section class="map-panel">
+    <div id="map"></div>
+    <p class="map-hint">📍 赤いマーカーをクリックすると、写真つきの詳細情報が表示されます</p>
+  </section>
+
+  <aside class="side-panel">
+    <div id="tabs">
+      <ul>
+        <li><a href="#tab-spots">観光スポット一覧</a></li>
+        <li><a href="#tab-trip">御朱印帳（旅程）<span id="trip-count" class="trip-badge">0</span></a></li>
+      </ul>
+
+      <div id="tab-spots">
+        <ul id="spot-list" class="spot-list"><!-- filled by JS --></ul>
+      </div>
+
+      <div id="tab-trip">
+        <p class="trip-intro">気になったスポットを「旅程に追加」すると、ここにスタンプが押されます。並び替えもできます。</p>
+        <ul id="trip-list" class="trip-list"><!-- filled by JS --></ul>
+        <p id="trip-empty" class="trip-empty">まだスタンプがありません。地図やスポット一覧から追加してみましょう。</p>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <p>copyright &copy; <script>new Date().getFullYear() > 2000 && document.write("" + new Date().getFullYear());</script> KhadkaSagar All rights reserved.</p>
+</footer>
+
+<!-- jQuery + jQuery UI (required for UI decoration bonus) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<script src="spots.js"></script>
+<script src="script.js"></script>
+
+<!-- Google Maps API key  -->
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAKLjisxFelKwIl1_G6MiEO9-ya7Twr5s&libraries=places&callback=initMap">
+</script>
+
+</body>
+</html>
